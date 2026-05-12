@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Detalle Alumno</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+
+<style>
+
+body{
+background: linear-gradient(135deg,#4e73df,#1cc88a);
+min-height:100vh;
+}
+
+.navbar{
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-box{
+background:white;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+padding:35px;
+margin-top:40px;
+}
+
+.titulo{
+font-weight:700;
+color:#4e73df;
+}
+
+.info-label{
+font-weight:600;
+color:#555;
+}
+
+.info-box{
+background:#f8f9fa;
+padding:12px;
+border-radius:10px;
+}
+
+.btn{
+border-radius:10px;
+font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="{{ route('alumnos.index') }}">
+
+<i class="bi bi-mortarboard-fill"></i>
+Sistema de Alumnos
+
+</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="card-box">
+
+<h3 class="titulo mb-4">
+
+<i class="bi bi-person-vcard-fill"></i>
+Detalle del Alumno
+
+</h3>
+
+<div class="row g-3">
+
+<!-- NUMERO CONTROL -->
+<div class="col-md-4">
+
+<label class="info-label">
+Número de Control
+</label>
+
+<div class="info-box">
+{{ $alumno->Num_Control }}
+</div>
+
+</div>
+
+<!-- NOMBRE -->
+<div class="col-md-4">
+
+<label class="info-label">
+Nombre
+</label>
+
+<div class="info-box">
+{{ $alumno->Nombre }}
+</div>
+
+</div>
+
+<!-- PRIMER APELLIDO -->
+<div class="col-md-4">
+
+<label class="info-label">
+Primer Apellido
+</label>
+
+<div class="info-box">
+{{ $alumno->Primer_Ap }}
+</div>
+
+</div>
+
+<!-- SEGUNDO APELLIDO -->
+<div class="col-md-4">
+
+<label class="info-label">
+Segundo Apellido
+</label>
+
+<div class="info-box">
+{{ $alumno->Segundo_Ap }}
+</div>
+
+</div>
+
+<!-- FECHA -->
+<div class="col-md-4">
+
+<label class="info-label">
+Fecha de Nacimiento
+</label>
+
+<div class="info-box">
+
+{{ \Carbon\Carbon::parse($alumno->Fecha_Nac)->format('d/m/Y') }}
+
+</div>
+
+</div>
+
+<!-- SEMESTRE -->
+<div class="col-md-2">
+
+<label class="info-label">
+Semestre
+</label>
+
+<div class="info-box">
+{{ $alumno->Semestre }}
+</div>
+
+</div>
+
+<!-- CARRERA -->
+<div class="col-md-6">
+
+<label class="info-label">
+Carrera
+</label>
+
+<div class="info-box">
+{{ $alumno->Carrera }}
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<a href="{{ route('alumnos.index') }}"
+class="btn btn-secondary">
+
+<i class="bi bi-arrow-left-circle"></i>
+Regresar
+
+</a>
+
+<a href="{{ route('alumnos.edit', $alumno->id) }}"
+class="btn btn-warning">
+
+<i class="bi bi-pencil"></i>
+Editar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
