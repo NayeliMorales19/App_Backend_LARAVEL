@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return "API funcionando correctamente";
 });
 
 Route::get('/dashboard', function () {
