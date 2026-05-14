@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Servicios Escolares',
     'title_prefix' => '',
     'title_postfix' => '',
 
