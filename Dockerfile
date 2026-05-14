@@ -1,11 +1,9 @@
 FROM php:8.2-cli
 
-# Instalar dependencias
 RUN apt-get update && apt-get install -y \
     unzip curl git libzip-dev zip \
     && docker-php-ext-install pdo pdo_mysql
 
-# Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
@@ -13,6 +11,8 @@ WORKDIR /app
 COPY . .
 
 RUN composer install
+
+RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 10000
 
